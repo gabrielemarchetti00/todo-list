@@ -27,8 +27,50 @@ body {
   grid-template-rows: 1fr 1fr;
 }
 
+.projects{
+  align-self: center;
+  justify-self: center;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.left-title{
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.uni, 
+.sport,
+.hol,
+.all{
+  cursor: pointer;
+}
+
 .new-todo {
   border-top: 1px solid;
+}
+
+/*middle*/
+.middle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30px;
+  gap: 30px;
+}
+
+.middle-title{
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 55px;
+}
+
+.middle-body{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /*right*/
