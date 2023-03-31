@@ -1,0 +1,1 @@
+(()=>{const t=new function(t,e,i,n,h){this.title="exam",this.description="algorithms",this.dueDate="21/4",this.priority="high",this.project="university"}("exam","algorithms","21/4","high","university"),e=document.querySelector(".middle"),i=document.createElement("ul");e.appendChild(i);const n=document.createElement("li");n.textContent=t.title,i.appendChild(n)})();
