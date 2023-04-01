@@ -76,10 +76,28 @@ body {
 /*right*/
 .right {
   display: grid;
-  grid-template-rows: 2fr 2fr 1fr;
+  grid-template-rows: 0.3fr 2fr 2fr 1fr;
+  font-size: 30px;
+  gap: 20px;
 }
 
-.details,
+.right-title,
+.details{
+  justify-self: center;
+}
+
+.right-title{
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 55px;
+}
+
+.single-detail{
+  display: flex;
+  gap: 20px;
+}
+
 .edit {
   border-bottom: 1px solid;
+  border-top: 1px solid;
 }
