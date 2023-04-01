@@ -26,7 +26,8 @@ function makeTodosClickable() {
   todo.addEventListener('click', () => {
     for(const i in defaultProject){
       if(todo.id == defaultProject[i].pos){
-        showDetails(defaultProject[i]);
+        selectedTodo = defaultProject[i];
+        showDetails(selectedTodo);
       }
     }
   });
@@ -34,7 +35,6 @@ function makeTodosClickable() {
 }
 
 function showDetails(todo){
-  const detailsSection = document.querySelector('.details');
   detailsSection.innerHTML = '';
   const keys = Object.keys(todo);
   for (let i = 0; i < keys.length - 1; i++) {
@@ -64,6 +64,18 @@ function showDetails(todo){
     detailDiv.appendChild(contentDiv);
     detailsSection.appendChild(detailDiv);
   }
+}
+
+function deleteTodo(selectedTodo){
+    defaultProject.splice(defaultProject.indexOf(selectedTodo), 1);
+    if(selectedTodo.project == 'university'){
+      uniProject.splice(uniProject.indexOf(selectedTodo), 1);
+    }else if(selectedTodo.project == 'sport'){
+      sportProject.splice(sportProject.indexOf(selectedTodo), 1);
+    }else if(selectedTodo.project == 'holiday'){
+      holidayProject.splice(holidayProject.indexOf(selectedTodo), 1);
+    }
+    showTodos(defaultProject);
 }
 
 const defaultProject = [];
@@ -105,9 +117,19 @@ allButton.addEventListener('click', () => {
   showTodos(defaultProject);
 });
 
+let selectedTodo;
+const detailsSection = document.querySelector('.details');
+
 const deleteSection = document.querySelector('.delete');
 const deleteBtn = document.createElement('button');
+deleteBtn.textContent = 'Delete';
+deleteBtn.id = 'delete-button';
+deleteSection.appendChild(deleteBtn);
 deleteBtn.addEventListener('click', () => {
-
+  deleteTodo(selectedTodo);
+  detailsSection.innerHTML = '';
 });
+
+
+
 
