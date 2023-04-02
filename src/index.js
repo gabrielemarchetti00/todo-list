@@ -78,6 +78,54 @@ function deleteTodo(selectedTodo){
     showTodos(defaultProject);
 }
 
+function addTodo(t, d, dd, pr, pj, pos){
+  const todo = new Todo(t, d, dd, pr, pj, pos);
+  defaultProject.push(todo);
+  if(todo.project == 'university'){
+    uniProject.push(todo);
+  }else if(todo.project == 'sport'){
+    sportProject.push(todo);
+  }else if(todo.project == 'holiday'){
+    holidayProject.push(todo);
+  }
+}
+
+function editTodo(t, d, dd, pr, pj){
+  if(selectedTodo.title != t){
+    selectedTodo.title = t;
+  }
+  if(selectedTodo.dueDate != dd){
+    selectedTodo.dueDate = d;
+  }
+  if(selectedTodo.description != d){
+    selectedTodo.description = d;
+  }
+  if(selectedTodo.priority != pr){
+    selectedTodo.priority = pr;
+  }
+  if(selectedTodo.project != pj){
+    if(selectedTodo.project == 'university'){
+      uniProject.splice(uniProject.indexOf(selectedTodo), 1);
+    }
+    else if(selectedTodo.project == 'sport'){ 
+      sportProject.splice(sportProject.indexOf(selectedTodo), 1);
+    }
+    else if(selectedTodo.project == 'holiday'){ 
+      holidayProject.splice(holidayProject.indexOf(selectedTodo), 1);
+    }
+    if(pj == 'university'){
+      uniProject.push(selectedTodo);
+    }
+    else if(pj == 'sport'){
+      sportProject.push(selectedTodo);
+    }
+    else if(pj == 'holiday'){
+      holidayProject.push(selectedTodo);
+    }
+    selectedTodo.project = pj;
+  }
+}
+
 const defaultProject = [];
 const uniProject = [];
 const sportProject = [];
@@ -131,5 +179,52 @@ deleteBtn.addEventListener('click', () => {
 });
 
 
+const newForm = document.querySelector('.new-form');
+const newBtn = document.querySelector("#new-button");
+newBtn.addEventListener("click", () => {
+  newForm.style.display = "block";
+});
 
+const newSubmitBtn = document.querySelector("#new-submit-button");
+newSubmitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  let title = document.querySelector("#new-title");
+  let desc = document.querySelector("#new-desc");
+  let dueDate = document.querySelector("#new-duedate");
+  let priority = document.querySelector('#new-priority');
+  let project = document.querySelector('#new-project');
+  let pos = defaultProject.length + 1;
 
+  addTodo(title.value, desc.value, dueDate.value, priority.value, project.value, pos);
+  showTodos(defaultProject);
+
+  newForm.style.display = "none";
+  newForm.reset();
+});
+
+const editForm = document.querySelector('.edit-form');
+const editBtn = document.querySelector("#edit-button");
+editBtn.addEventListener("click", () => {
+  editForm.style.display = "block";
+  title = document.querySelector("#edit-title");
+  title.value = selectedTodo.title;
+  desc = document.querySelector("#edit-desc");
+  desc.value = selectedTodo.description;
+  dueDate = document.querySelector("#edit-duedate");
+  dueDate.value = selectedTodo.dueDate;
+  priority = document.querySelector('#edit-priority');
+  priority.value = selectedTodo.priority;
+  project = document.querySelector('#edit-project');
+  project.value = selectedTodo.project;
+});
+
+const editSubmitBtn = document.querySelector("#edit-submit-button");
+editSubmitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  editTodo(title.value, desc.value, dueDate.value, priority.value, project.value);
+  showDetails(selectedTodo);
+
+  editForm.style.display = "none";
+  editForm.reset();
+});
