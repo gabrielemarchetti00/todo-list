@@ -137,15 +137,15 @@ let uniProject = [];
 let sportProject = [];
 let holidayProject = [];
 
-const todoOne = new Todo("exam", "algorithms", "21/4", "high", "university", 1);
+const todoOne = new Todo("exam", "algorithms", "2023/04/21", "high", "university", 1);
 defaultProject.push(todoOne);
 uniProject.push(todoOne);
 
-const todoTwo = new Todo("basketball", "3v3, outdoor", "12/4", "low", "sport", 2)
+const todoTwo = new Todo("basketball", "3v3, outdoor", "2023/04/10", "low", "sport", 2)
 defaultProject.push(todoTwo);
 sportProject.push(todoTwo);
 
-const todoThree = new Todo("sardegna", "santa teresa, one week", "13/9", "middle", "holiday", 3);
+const todoThree = new Todo("sardegna", "santa teresa, one week", "2023/09/14", "middle", "holiday", 3);
 defaultProject.push(todoThree);
 holidayProject.push(todoThree);
 

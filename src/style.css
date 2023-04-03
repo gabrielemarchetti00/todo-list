@@ -2,6 +2,7 @@ body {
   display: flex;
   align-items: center;
   margin: 100px;
+  background-color: #cffafe;
 }
 
 .left,
@@ -11,26 +12,27 @@ body {
   height: 75vh;
 }
 
-.left,
-.right {
-  border: 1px solid;
-}
-
-.middle {
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-}
-
 /*left*/
 .left {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 0.2fr 1fr 1fr;
+  background-color: #22d3ee;
+}
+
+.main-title{
+  font-weight: bold;
+  font-size: 70px;
+  color: white;
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .projects{
   align-self: center;
   justify-self: center;
   font-size: 30px;
+  font-weight: bold;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -38,6 +40,7 @@ body {
 
 .left-title{
   font-weight: bold;
+  font-size: 40px;
   text-decoration: underline;
 }
 
@@ -48,8 +51,31 @@ body {
   cursor: pointer;
 }
 
+.uni:hover,
+.sport:hover,
+.hol:hover,
+.all:hover{
+  color: white;
+}
+
 .new-todo {
-  border-top: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.new-form{
+  font-size: 20px;
+}
+
+#new-button{
+  height: 100px;
+  width: 150px;
+  font-size: 30px;
+  border: 0px;
+  background-color: #a5f3fc;
+  border-radius: 100px;
 }
 
 /*middle*/
@@ -59,12 +85,13 @@ body {
   align-items: center;
   font-size: 30px;
   gap: 30px;
+  background-color: #67e8f9;
 }
 
 .middle-title{
   font-weight: bold;
   text-decoration: underline;
-  margin-top: 55px;
+  margin-top: 165px;
 }
 
 .middle-body{
@@ -73,12 +100,21 @@ body {
   gap: 20px;
 }
 
+.middle-body > div{
+  cursor: pointer;
+}
+
+.middle-body > div:hover{
+  color: white;
+}
+
 /*right*/
 .right {
   display: grid;
   grid-template-rows: 0.3fr 2fr 2fr 1fr;
   font-size: 30px;
   gap: 20px;
+  background-color: #a5f3fc;
 }
 
 .right-title,
@@ -97,11 +133,6 @@ body {
   gap: 20px;
 }
 
-.edit {
-  border-bottom: 1px solid;
-  border-top: 1px solid;
-}
-
 .delete{
   display: flex;
   justify-content: center;
@@ -112,4 +143,29 @@ body {
   width: 100px;
   height: 50px;
   font-size: 20px;
+}
+
+.edit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+#edit-button,
+#delete-button{
+  width: 150px;
+  height: 100px;
+  background-color:#22d3ee;
+  border: 0px;
+  border-radius: 100px;
+  font-size: 30px;
+}
+
+.edit-form{
+  font-size: 20px;
+}
+
+#delete-button{
+  margin-bottom: 40px;
 }

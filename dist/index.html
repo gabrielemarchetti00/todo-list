@@ -10,6 +10,7 @@
   </head>
   <body>
     <div class="left">
+      <div class="main-title">tOdO</div>
       <div class="projects">
         <div class="left-title">Projects:</div>
         <div class="uni">University</div>
@@ -30,15 +31,23 @@
           </div>
           <div>
             <label for="new-duedate">Due date:</label>
-            <input type="text" id="new-duedate">         
+            <input type="date" id="new-duedate">         
           </div>
           <div>
             <label for="new-priority">Priority:</label>
-            <input type="text" id="new-priority">
+            <select name="newPriority" id="new-priority">
+              <option value="high">low</option>
+              <option value="middle">middle</option>
+              <option value="low">low</option>
+            </select>
           </div>
           <div>
-            <label for="new-project">Project:</label>
-            <input type="text" id="new-project">
+            <label for="new-project">Project</label>
+            <select name="newProject" id="new-project">
+              <option value="university">university</option>
+              <option value="sport">sport</option>
+              <option value="holiday">holiday</option>
+            </select>
           </div>
           <button type="submit" id="new-submit-button">Create</button>
         </form>
