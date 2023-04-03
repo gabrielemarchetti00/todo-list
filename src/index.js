@@ -17,6 +17,16 @@ function showTodos(project) {
     todoDiv.className = 'todos';
     todoDiv.id = project[i].pos;
     todoDiv.textContent = `${project[i].title} - ${project[i].dueDate}`;
+    switch(project[i].priority){
+      case 'high':
+        todoDiv.style.backgroundColor = '#f87171';
+        break;
+      case 'middle':
+        todoDiv.style.backgroundColor = '#4ade80';
+        break;
+      case 'low':
+        todoDiv.style.backgroundColor = '#fde047';
+    }
     middleBody.appendChild(todoDiv);
   }
   makeTodosClickable();
@@ -99,7 +109,7 @@ function editTodo(t, d, dd, pr, pj){
     selectedTodo.title = t;
   }
   if(selectedTodo.dueDate != dd){
-    selectedTodo.dueDate = d;
+    selectedTodo.dueDate = dd;
   }
   if(selectedTodo.description != d){
     selectedTodo.description = d;
