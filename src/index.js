@@ -1,3 +1,5 @@
+import { populateStorage, getStorageDefault, getStorageUni, getStorageSport, getStorageHoliday } from "./storage";
+
 function Todo(title, description, dueDate, priority, project, pos) {
   this.title = title;
   this.description = description;
@@ -75,6 +77,7 @@ function deleteTodo(selectedTodo){
     }else if(selectedTodo.project == 'holiday'){
       holidayProject.splice(holidayProject.indexOf(selectedTodo), 1);
     }
+    populateStorage(defaultProject, uniProject, sportProject, holidayProject);
     showTodos(defaultProject);
 }
 
@@ -88,6 +91,7 @@ function addTodo(t, d, dd, pr, pj, pos){
   }else if(todo.project == 'holiday'){
     holidayProject.push(todo);
   }
+  populateStorage(defaultProject, uniProject, sportProject, holidayProject);
 }
 
 function editTodo(t, d, dd, pr, pj){
@@ -124,24 +128,35 @@ function editTodo(t, d, dd, pr, pj){
     }
     selectedTodo.project = pj;
   }
+  populateStorage(defaultProject, uniProject, sportProject, holidayProject);
+  showTodos(defaultProject);
 }
 
-const defaultProject = [];
-const uniProject = [];
-const sportProject = [];
-const holidayProject = [];
+let defaultProject = [];
+let uniProject = [];
+let sportProject = [];
+let holidayProject = [];
 
-todoOne = new Todo("exam", "algorithms", "21/4", "high", "university", 1);
+const todoOne = new Todo("exam", "algorithms", "21/4", "high", "university", 1);
 defaultProject.push(todoOne);
 uniProject.push(todoOne);
 
-todoTwo = new Todo("basketball", "3v3, outdoor", "12/4", "low", "sport", 2)
+const todoTwo = new Todo("basketball", "3v3, outdoor", "12/4", "low", "sport", 2)
 defaultProject.push(todoTwo);
 sportProject.push(todoTwo);
 
-todoThree = new Todo("sardegna", "santa teresa, one week", "13/9", "middle", "holiday", 3);
+const todoThree = new Todo("sardegna", "santa teresa, one week", "13/9", "middle", "holiday", 3);
 defaultProject.push(todoThree);
 holidayProject.push(todoThree);
+
+if (!localStorage.getItem("default")) {
+  populateStorage(defaultProject, uniProject, sportProject, holidayProject);
+} else {
+  defaultProject = getStorageDefault();
+  uniProject = getStorageUni();
+  sportProject = getStorageSport();
+  holidayProject = getStorageHoliday();
+}
 
 showTodos(defaultProject);
 
@@ -185,15 +200,16 @@ newBtn.addEventListener("click", () => {
   newForm.style.display = "block";
 });
 
+let title, desc, dueDate, priority, project, pos;
 const newSubmitBtn = document.querySelector("#new-submit-button");
 newSubmitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  let title = document.querySelector("#new-title");
-  let desc = document.querySelector("#new-desc");
-  let dueDate = document.querySelector("#new-duedate");
-  let priority = document.querySelector('#new-priority');
-  let project = document.querySelector('#new-project');
-  let pos = defaultProject.length + 1;
+  title = document.querySelector("#new-title");
+  desc = document.querySelector("#new-desc");
+  dueDate = document.querySelector("#new-duedate");
+  priority = document.querySelector('#new-priority');
+  project = document.querySelector('#new-project');
+  pos = defaultProject.length + 1;
 
   addTodo(title.value, desc.value, dueDate.value, priority.value, project.value, pos);
   showTodos(defaultProject);
