@@ -1,0 +1,177 @@
+body {
+  display: flex;
+  align-items: center;
+  margin: 100px;
+  background-color: #cffafe;
+}
+
+.left,
+.middle,
+.right {
+  flex: 1;
+  height: 75vh;
+}
+
+/*left*/
+.left {
+  display: grid;
+  grid-template-rows: 0.2fr 1fr 1fr;
+  background-color: #22d3ee;
+}
+
+.main-title{
+  font-weight: bold;
+  font-size: 70px;
+  color: white;
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.projects{
+  align-self: center;
+  justify-self: center;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.left-title{
+  font-weight: bold;
+  font-size: 40px;
+  text-decoration: underline;
+}
+
+.uni, 
+.sport,
+.hol,
+.all{
+  cursor: pointer;
+}
+
+.uni:hover,
+.sport:hover,
+.hol:hover,
+.all:hover{
+  color: white;
+}
+
+.new-todo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.new-form{
+  font-size: 20px;
+}
+
+#new-button{
+  height: 100px;
+  width: 150px;
+  font-size: 30px;
+  border: 0px;
+  background-color: #a5f3fc;
+  border-radius: 100px;
+}
+
+/*middle*/
+.middle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30px;
+  gap: 30px;
+  background-color: #67e8f9;
+}
+
+.middle-title{
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 165px;
+}
+
+.middle-body{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.middle-body > div{
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.middle-body > div:hover{
+  color: white;
+}
+
+/*right*/
+.right {
+  display: grid;
+  grid-template-rows: 0.3fr 2fr 2fr 1fr;
+  font-size: 30px;
+  gap: 20px;
+  background-color: #a5f3fc;
+}
+
+.right-title,
+.details{
+  justify-self: center;
+}
+
+.right-title{
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 55px;
+}
+
+.single-detail{
+  display: flex;
+  gap: 20px;
+}
+
+.delete{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#delete-button{
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.edit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+#edit-button,
+#delete-button{
+  width: 150px;
+  height: 100px;
+  background-color:#22d3ee;
+  border: 0px;
+  border-radius: 100px;
+  font-size: 30px;
+}
+
+.edit-form{
+  font-size: 20px;
+}
+
+#delete-button{
+  margin-bottom: 40px;
+}
+
+button{
+  cursor: pointer;
+}
