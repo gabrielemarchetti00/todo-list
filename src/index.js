@@ -1,4 +1,5 @@
 import { populateStorage, getStorageDefault, getStorageUni, getStorageSport, getStorageHoliday } from "./storage";
+import { initializeApp } from "firebase/app";
 
 function Todo(title, description, dueDate, priority, project, pos) {
   this.title = title;
@@ -147,18 +148,6 @@ let uniProject = [];
 let sportProject = [];
 let holidayProject = [];
 
-const todoOne = new Todo("exam", "algorithms", "2023/04/21", "high", "university", 1);
-defaultProject.push(todoOne);
-uniProject.push(todoOne);
-
-const todoTwo = new Todo("basketball", "3v3, outdoor", "2023/04/10", "low", "sport", 2)
-defaultProject.push(todoTwo);
-sportProject.push(todoTwo);
-
-const todoThree = new Todo("sardegna", "santa teresa, one week", "2023/09/14", "middle", "holiday", 3);
-defaultProject.push(todoThree);
-holidayProject.push(todoThree);
-
 if (!localStorage.getItem("default")) {
   populateStorage(defaultProject, uniProject, sportProject, holidayProject);
 } else {
@@ -254,3 +243,16 @@ editSubmitBtn.addEventListener("click", (e) => {
   editForm.style.display = "none";
   editForm.reset();
 });
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCc1KHEu4uasGeAZg-gfnZvepjALM2vrF4",
+  authDomain: "todolist-566e4.firebaseapp.com",
+  projectId: "todolist-566e4",
+  storageBucket: "todolist-566e4.appspot.com",
+  messagingSenderId: "637012215098",
+  appId: "1:637012215098:web:674444d950c4635d55bc03",
+  measurementId: "G-5YK8MK1JSK"
+};
+
+const app = initializeApp(firebaseConfig);
